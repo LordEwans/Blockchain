@@ -42,12 +42,8 @@ func TestPublicKeyToAddress(t *testing.T) {
 }
 
 func TestGenerateKeyFromString(t *testing.T) {
-	var (
-		seed = "8e0d9d1838a6ba4573ed927d8ba9423d5e07883637a64e29115536104ae1b6d5"
-
-		privKey       = crypto.GeneratePrivateKeyFromString(seed)
-		addressString = "728c3860a5d4f2d2ee39b24a9dd23aa02a4b57d0"
-	)
+	seed, addressString := "8e0d9d1838a6ba4573ed927d8ba9423d5e07883637a64e29115536104ae1b6d5", "728c3860a5d4f2d2ee39b24a9dd23aa02a4b57d0"
+	privKey := crypto.GeneratePrivateKeyFromString(seed)
 	assert.Equal(t, len(privKey.Bytes()), 64)
 
 	address := privKey.Public().Address()
